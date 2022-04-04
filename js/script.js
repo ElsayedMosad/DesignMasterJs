@@ -177,3 +177,24 @@ opBullets.forEach((e) => {
     }
   });
 });
+
+// Play our skills
+
+const skills = document.querySelector(".skills");
+const skillItems = skills.querySelectorAll(".skill-show span");
+
+window.addEventListener("scroll", function () {
+  // change width of span skill if scroll in visible
+  if (
+    this.scrollY >= skills.offsetTop - 100 &&
+    this.scrollY < skills.offsetTop + skills.offsetHeight
+  ) {
+    skillItems.forEach((e) => {
+      e.style.width = e.dataset.width;
+    });
+  } else {
+    skillItems.forEach((e) => {
+      e.style.width = 0;
+    });
+  }
+});

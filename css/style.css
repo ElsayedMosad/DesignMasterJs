@@ -7,12 +7,18 @@
   --var-color: rgb(255, 26, 26);
   --main-text-color: #eee;
   --light-color: #fff;
+  --d-color: #ddd;
+  --white-color: white;
+  --par-color: #767676;
   --line: 1.8;
 }
 /* End variables */
 /* Start Genral rules */
 body {
   font-family: 'Merriweather Sans', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }
 h1, 
 h2,
@@ -81,6 +87,25 @@ ul {
     width: 1200px;
   }
 }
+.main-head {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--var-color);
+  text-align: center;
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.main-head::after {
+  content: '';
+  position: absolute;
+  background-color: var(--var-color);
+  width: 80px;
+  height: 4px;
+  bottom: -5px;
+  left: 50%;
+  transform: translate(-50%);
+}
 /* End classes */
 /* Start setting box */
 .set-box {
@@ -97,7 +122,7 @@ ul {
 }
 .set-box .set-head {
   font-size: 25px;
-  color: rgb(107, 107, 107);
+  color: var(--par-color);
   position: relative;
   margin: 20px auto 30px;
   text-align: center;
@@ -147,8 +172,8 @@ ul {
   }
 }
 .set-box .set-item {
-  margin: 20px 10px;
-  background-color: #ddd;
+  margin: 15px 10px;
+  background-color: var(--d-color);
   text-align: center;
 }
 .set-box .set-item h3 {
@@ -160,13 +185,13 @@ ul {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-color: red;
+  /* background-color: red; */
   border-radius: 3px;
   margin: 10px 6px 20px;
   cursor: pointer;
 }
 .set-box #colors .set-colors li.color-active {
-  outline: 4px solid rgb(254, 254, 254);
+  outline: 4px solid var(--white-color)
 }
 .set-box .set-item .set-op {
   display: flex;
@@ -179,7 +204,7 @@ ul {
   margin: 6px;
   border-radius: 5px;
   font-size: 14px;
-  color: rgb(254, 254, 254);
+  color: var(--white-color);
   cursor: pointer;
   opacity: 0.5;
 }
@@ -190,7 +215,7 @@ ul {
 /* Start Home */
 .home {
   min-height: 100vh;
-  background-color: #ddd;
+  background-color: var(--d-color);
   background-image: url('../imgs/p6.jpg');
   background-size: cover;
   background-position: center center;
@@ -334,13 +359,8 @@ ul {
 .about .about-text {
   text-align: center;
 }
-.about .about-head {
-  color: var(--var-color);
-  font-size: 32px;
-  margin-bottom: 10px;
-}
 .about .about-par {
-  color: #767676;
+  color: var(--par-color);
   font-size: 17px;
   line-height: var(--line);
 }
@@ -364,3 +384,59 @@ ul {
   }
 }
 /* End About  */
+
+/* Start Skills */
+.skills {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: var(--d-color);
+  /* min-height: 100vh; */
+}
+
+.skills .skill-item {
+  display: flex;
+  padding: 15px;
+  background-color: var(--light-color);
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 25px auto;
+}
+.skills .skill-item .skill-name {
+  font-size: 17px;
+  font-weight: 600;
+  width: 120px;
+  text-align: center;
+  margin-bottom: 15px;
+
+}
+.skills .skill-item .skill-show {
+  height: 30px;
+  background-color: var(--var-color);
+  background-color: var(--main-text-color);
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.skills .skill-item .skill-show span {
+  display: inline-block;
+  background-color: var(--var-color);
+  height: 100%;
+  transition: 0.5s ease;
+}
+@media (min-width: 768px) {
+  .skills .skill-item {
+    flex-direction: row;
+    width: 90%;
+  }
+  .skills .skill-item .skill-name {
+    margin-bottom: 0;
+  }
+}
+/* End Skills */
+
+
+footer {
+  height: 150vh;
+  background-color: var(--var-color);
+}
