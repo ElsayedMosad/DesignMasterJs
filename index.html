@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript project</title>
+    <link rel="shortcut icon" href="imgs/control.png" />
+    <!-- <link rel="shortcut icon" href="imgs/quality-control.png"> -->
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Render all element -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- Main css file -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="set-box set-op">
+      <div class="gear">
+        <i class="fa-solid fa-gear"></i>
+      </div>
+      <div class="set-item" id="colors">
+        <h3>Colors</h3>
+        <ul class="set-colors">
+          <li
+            style="background-color: rgb(255, 26, 26)"
+            class="color-active"
+          ></li>
+          <li style="background-color: rgb(0, 217, 43)"></li>
+          <li style="background-color: rgb(26, 91, 229)"></li>
+          <li style="background-color: rgb(255, 152, 0)"></li>
+          <li style="background-color: rgb(255, 0, 217)"></li>
+        </ul>
+      </div>
+      <div class="set-item">
+        <h3>Random Backgrounds</h3>
+        <ul class="set-random set-op">
+          <li class="yes active-op">Yes</li>
+          <li class="no">No</li>
+        </ul>
+      </div>
+      <div class="set-item">
+        <h3>Show Bullets</h3>
+        <ul class="set-bullets set-op">
+          <li class="yes active-op">Yes</li>
+          <li class="no">No</li>
+        </ul>
+      </div>
+    </div>
+    <section class="home">
+      <div class="overlay">
+        <header class="header">
+          <div class="container">
+            <div class="logo">
+              <a href="#index.html">
+                <img src="imgs/control.png" alt="My Logo desgin" />
+              </a>
+            </div>
+            <nav class="nav">
+              <ul class="links">
+                <li><a href="#" class="menu-link active">About</a></li>
+                <li><a href="#" class="menu-link">Skills</a></li>
+                <li><a href="#" class="menu-link">Gallery</a></li>
+                <li><a href="#" class="menu-link">Timeline</a></li>
+                <li><a href="#" class="menu-link">Features</a></li>
+                <li><a href="#" class="menu-link">Testimonials</a></li>
+              </ul>
+              <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+                <span class="menu-arrow"></span>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <div class="home-text">
+          <h1 class="home-title">
+            We Are <span class="home-crea">Creative</span> Agency
+          </h1>
+          <p class="home-par">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
+            dolores.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- <i class="fa-solid fa-2"></i> -->
+    <!-- Main javascript file -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
