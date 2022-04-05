@@ -66,7 +66,7 @@ const arrImg = [
   "p2.jpg",
   "p3.jpg",
   "p4.jpg",
-  // "p5.jpg",
+  "p5.jpg",
   "p6.jpg",
   "p7.jpg",
   "p8.jpg",
@@ -186,15 +186,19 @@ const skillItems = skills.querySelectorAll(".skill-show span");
 window.addEventListener("scroll", function () {
   // change width of span skill if scroll in visible
   if (
-    this.scrollY >= skills.offsetTop - 100 &&
+    this.scrollY >= skills.offsetTop - 200 &&
     this.scrollY < skills.offsetTop + skills.offsetHeight
   ) {
-    skillItems.forEach((e) => {
-      e.style.width = e.dataset.width;
-    });
+    if (skillItems[0].style.width != skillItems[0].dataset.width) {
+        skillItems.forEach((e) => {
+        e.style.width = e.dataset.width;
+      });
+      }
   } else {
-    skillItems.forEach((e) => {
-      e.style.width = 0;
-    });
+    if (skillItems[0].style.width != 0) {
+      skillItems.forEach((e) => {
+        e.style.width = 0;
+      });
+    }
   }
 });
