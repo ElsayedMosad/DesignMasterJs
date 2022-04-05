@@ -151,11 +151,9 @@ function clearActive() {
 }
 
 // yesRandom.onclick = function () {
-//   console.log("face");
 //   clearInterval(repeatChange);
 // };
 // NoRandom.onclick = function () {
-//   console.log("bace");
 //   setInterval(() => {
 //     repeatChange;
 //   }, 1000);
@@ -202,3 +200,19 @@ window.addEventListener("scroll", function () {
     }
   }
 });
+
+
+const imgsGallery = document.querySelectorAll('.gallery img');
+const showImg= document.querySelector('.show-img');
+const closeImg = document.querySelector('.close-img');
+
+imgsGallery.forEach ((e, index) => {
+  e.addEventListener('click', ()=> {
+    showImg.classList.add('show-img-open')
+    showImg.querySelector('img').setAttribute('src',  e.getAttribute('src'));
+    showImg.querySelector('.img-title').textContent = `Image ${index}`
+  })
+})
+closeImg.addEventListener('click', ()=> {
+  showImg.classList.remove('show-img-open');
+})
