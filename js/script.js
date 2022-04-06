@@ -37,7 +37,7 @@ if (localStorage.getItem("optionRandom") === "no") {
   yesRandom.classList.remove("active-op");
   NoRandom.classList.add("active-op");
 }
-
+// change Random option on click yes or no
 opRandom.forEach((e) => {
   e.addEventListener("click", function (e) {
     if (!e.target.classList.contains("active-op")) {
@@ -106,24 +106,17 @@ function autoChangeBg() {
   }
 }
 autoChangeBg();
-// function changeBack() {
-//   home.style.cssText = `background-image: url('imgs/${
-//     arrImg[getRandomInt(arrImg.length)]
-//   }')`;
-// }
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * max);
-// }
-// let repeatChange = setInterval(changeBack, 5000);
+
 // play setting box
 const settingBox = document.querySelector(".set-box");
 const gear = document.querySelector(".gear");
-
+// open or close control panel on click gear
 gear.addEventListener("click", () => settingBox.classList.toggle("set-open"));
+
 
 const root = document.querySelector(":root");
 const colors = document.querySelectorAll(".set-colors li");
-// check localStorage and change setting
+// check localStorage and change setting change var color
 if (localStorage.getItem("index")) {
   clearActive();
   let color = colors[localStorage.getItem("index")].style.backgroundColor;
@@ -150,14 +143,44 @@ function clearActive() {
   });
 }
 
-// yesRandom.onclick = function () {
-//   clearInterval(repeatChange);
-// };
-// NoRandom.onclick = function () {
-//   setInterval(() => {
-//     repeatChange;
-//   }, 1000);
-// };
+// Change to dark
+const setMood = document.querySelector(".set-mood");
+const opMood = document.querySelectorAll(".set-mood li");
+const yesMood = setMood.querySelector(".yes");
+const NoMood = setMood.querySelector(".no");
+// localStorage if light mood no and change to dark if no
+if (localStorage.getItem('optionMood')) {
+  if (localStorage.getItem('optionMood') === 'no') {
+    document.querySelector('body').classList.add('mood')
+    yesMood.classList.remove('active-op')
+    NoMood.classList.add('active-op')
+    document.querySelector('.about-img img').src = `imgs/about-us-dark.jpg`
+  }
+}
+opMood.forEach((e) => {
+  e.addEventListener("click", function (e) {
+    if (!e.target.classList.contains("active-op")) {
+      opMood.forEach((e) => {
+        if (e.classList.contains("active-op")) {
+          e.classList.remove("active-op");
+        }
+      });
+      localStorage.setItem("optionMood", e.target.classList);
+      e.target.classList.add("active-op");
+      if (e.target.classList.contains('no')) {
+        // changeMood();
+        document.querySelector('body').classList.add('mood')
+        document.querySelector('.about-img img').src = `imgs/about-us-dark.jpg`
+      }
+      if (e.target.classList.contains('yes')) {
+        // changeMood();
+        document.querySelector('body').classList.remove('mood')
+        document.querySelector('.about-img img').src = `imgs/about-us.jpg`
+      }
+    }
+  });
+});
+
 const setBullets = document.querySelector(".set-bullets");
 const opBullets = document.querySelectorAll(".set-bullets li");
 // const yesRandom = setRandom.querySelector(".yes");
@@ -177,10 +200,10 @@ opBullets.forEach((e) => {
 });
 
 // Play our skills
-
 const skills = document.querySelector(".skills");
 const skillItems = skills.querySelectorAll(".skill-show span");
 
+// change skills width if scroll on it 
 window.addEventListener("scroll", function () {
   // change width of span skill if scroll in visible
   if (
@@ -201,11 +224,8 @@ window.addEventListener("scroll", function () {
   }
 });
 
-
+// open img in popup on click it
 const imgsGallery = document.querySelectorAll('.gallery img');
-// const showImg= document.querySelector('.show-img');
-// const closeImg = document.querySelector('.close-img');
-
 imgsGallery.forEach ((e, index) => {
   e.addEventListener('click', ()=> {
     // Creat overlay => show image

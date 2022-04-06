@@ -12,11 +12,20 @@
   --par-color: #767676;
   --head-color: rgb(35, 35, 35);
   --line: 1.8;
+
 }
 /* End variables */
 /* Start Genral rules */
 body {
   font-family: "Merriweather Sans", sans-serif;
+}
+body.mood {
+  --main-text-color: #eee;
+  --light-color: rgb(32, 32, 32);
+  --d-color: rgb(58, 58, 58);
+  --white-color: white;
+  --par-color: #b7b7b7;
+  --head-color: rgb(229, 229, 229);
 }
 html {
   scroll-behavior: smooth;
@@ -158,6 +167,7 @@ ul {
   cursor: pointer;
   font-size: 17px;
   border: 2px solid;
+  color: var(--head-color);
   border-color: var(--var-color) var(--var-color) var(--var-color) transparent;
 }
 .set-box.set-open .gear i {
@@ -192,6 +202,7 @@ ul {
   margin: 10px 5px 20px;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 }
 .set-box #colors .set-colors li::after {
   content: "";
@@ -297,7 +308,7 @@ ul {
   display: inline-block;
   position: absolute;
   border: 15px solid;
-  border-color: transparent transparent var(--main-text-color) transparent;
+  border-color: transparent transparent var(--light-color) transparent;
   top: 70%;
   left: 50%;
   transform: translateX(-50%);
@@ -313,7 +324,7 @@ ul {
     bottom: 100%;
     right: 0;
     width: 100%;
-    background-color: var(--main-text-color);
+    background-color: var(--light-color);
     padding: 12px;
     border-radius: 8px;
   }
@@ -425,7 +436,7 @@ ul {
   width: 120px;
   text-align: center;
   margin-bottom: 15px;
-  /* color: var(--head-color); */
+  color: var(--head-color);
 }
 .skills .skill-item .skill-show {
   height: 30px;
@@ -454,7 +465,7 @@ ul {
 /* Start Gallery */
 .gallery {
   padding-top: 45px;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   background-color: var(--light-color);
 }
 .gallery .container {
@@ -636,7 +647,7 @@ ul {
 .features .container {
   padding-top: 15px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
   gap: 25px;
   text-align: center;
   line-height: var(--line);
@@ -667,6 +678,16 @@ ul {
 .features .feat-par {
   font-size: 15px;
   color: var(--par-color);
+}
+@media (min-width: 570px) {
+  .features .container {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+@media (min-width: 768px) {
+  .features .container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 /* End Features */
 footer {
