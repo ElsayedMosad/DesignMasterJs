@@ -103,7 +103,7 @@ ul {
   background-color: var(--var-color);
   width: 80px;
   height: 4px;
-  bottom: -5px;
+  bottom: -6px;
   left: 50%;
   transform: translate(-50%);
 }
@@ -228,7 +228,7 @@ ul {
 .home {
   min-height: 100vh;
   background-color: var(--d-color);
-  background-image: url('../imgs/p6.jpg');
+  background-image: url('../imgs/p9.jpg');
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -267,7 +267,7 @@ ul {
 }
 .home .nav .links {
   display: flex;
-  z-index: 100;
+  z-index: 1000;
 }
 .home .nav .links .menu-link {
   display: inline-block;
@@ -342,7 +342,7 @@ ul {
   padding: 10px;
 }
 .home .home-text .home-title {
-  font-size: 35px;
+  font-size: 27px;
   margin-bottom: 6px;
 }
 .home .home-text .home-title .home-crea {
@@ -350,15 +350,14 @@ ul {
   font-weight: 800;
 }
 .home .home-text .home-par {
-  font-size: 17px;
+  font-size: 14px;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .home .home-text .home-title {
-    font-size: 27px;
+    font-size: 35px;
   }
   .home .home-text .home-par {
-    margin: 0;
-    font-size: 14px;
+    font-size: 17px;
   }
 }
 /* End Home */
@@ -402,12 +401,13 @@ ul {
 
 /* Start Skills */
 .skills {
-  padding-top: 50px;
+  padding-top: 55px;
   padding-bottom: 60px;
   background-color: var(--d-color);
-  /* min-height: 100vh; */
 }
-
+.skills .container {
+  padding-top: 5px;
+}
 .skills .skill-item {
   display: flex;
   padding: 15px;
@@ -491,19 +491,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  display: none;
-}
-.show-img.show-img-open {
-  display: flex;
-}
-.show-img .overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 .show-img .img-box {
   position: relative;

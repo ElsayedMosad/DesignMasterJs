@@ -203,16 +203,44 @@ window.addEventListener("scroll", function () {
 
 
 const imgsGallery = document.querySelectorAll('.gallery img');
-const showImg= document.querySelector('.show-img');
-const closeImg = document.querySelector('.close-img');
+// const showImg= document.querySelector('.show-img');
+// const closeImg = document.querySelector('.close-img');
 
 imgsGallery.forEach ((e, index) => {
   e.addEventListener('click', ()=> {
-    showImg.classList.add('show-img-open')
-    showImg.querySelector('img').setAttribute('src',  e.getAttribute('src'));
-    showImg.querySelector('.img-title').textContent = `Image ${index}`
+    // Creat overlay => show image
+    let showImg = document.createElement('div');
+    showImg.classList.add('show-img');
+    document.body.appendChild(showImg);
+    // Create Box image
+    let imgBox = document.createElement('div')
+    imgBox.classList.add('img-box');
+    showImg.appendChild(imgBox);
+    // Create Title for image
+    let imgTitle = document.createElement('h3');
+    imgTitle.classList.add('img-title')
+    imgBox.appendChild(imgTitle);
+    // Create text Title 
+    // Create img
+    let img = document.createElement('img');
+    img.src = e.src;
+    imgBox.appendChild(img)
+    if (e.alt) {
+      let imgText = document.createTextNode(e.alt);
+      imgTitle.appendChild(imgText)
+    } else {
+      let imgText = document.createTextNode('Image Deap');
+      imgTitle.appendChild(imgText)
+      img.alt = 'Image Deap';
+      console.log("dddd")
+    }
+    // Creat close-img
+    let closeImg = document.createElement('span');
+    closeImg.classList.add('close-img');
+    closeImg.innerHTML= `<i class="fa-solid fa-xmark"></i>`;
+    imgBox.appendChild(closeImg)
+    closeImg.addEventListener('click', ()=> {
+      showImg.remove()
+    })
   })
-})
-closeImg.addEventListener('click', ()=> {
-  showImg.classList.remove('show-img-open');
 })
