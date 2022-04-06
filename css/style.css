@@ -32,7 +32,8 @@ div {
   padding: 0;
   margin: 0;
 }
-* {
+*,::after, 
+::before {
   box-sizing: border-box;
 }
 img {
@@ -111,13 +112,13 @@ ul {
 /* Start setting box */
 .set-box {
   position: fixed;
-  min-width: 230px;
+  min-width: 240px;
   min-height: 100vh;
   background-color: var(--light-color);
   top: 0;
   left: 0;
   z-index: 1000;
-  transform: translateX(-232px);
+  transform: translateX(-242px);
   transition: 0.2s ease;
   border-right: 2px solid var(--var-color);
 }
@@ -452,8 +453,9 @@ ul {
 /* End Skills */
 /* Start Gallery */
 .gallery {
-  padding-top: 40px;
+  padding-top: 45px;
   padding-bottom: 50px;
+  background-color: var(--light-color);
 }
 .gallery .container {
   display: grid;
@@ -474,7 +476,7 @@ ul {
 }
 @media (min-width: 567px) {
   .gallery .container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 @media (max-width: 280px) {
@@ -535,8 +537,97 @@ ul {
   }
 }
 /* End Gallery */
+/* Start Timeline */
+.timeline {
+  padding-top: 45px;
+  padding-bottom: 50px;
+  background-color: var(--d-color);
+}
+.timeline .container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.timeline .container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 2px;
+  margin-left: -1px;
+  background-color: var(--var-color);
+}
+.timeline .tim-year {
+  padding: 5px 8px;
+  color: var(--main-text-color);
+  background-color: var(--var-color);
+  margin: 20px auto;
+  position: relative;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.timeline .tim-box {
+  padding: 20px;
+  line-height: var(--line);
+  width: calc(50% - 25px);
+  background-color: var(--light-color);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.timeline .tim-box::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  height: 0;
+  width: 0;
+  border: 10px solid;
+  border-color: transparent transparent transparent var(--light-color);
+}
+.timeline .tim-box::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--var-color);
+  background-color: var(--light-color);
+}
+.timeline .tim-box.tim-right {
+  align-self: flex-end;
+}
+.timeline .tim-box.tim-right::before {
+  left: -20px;
+  border-color: transparent var(--light-color) transparent transparent ;
+}
+.timeline .tim-box.tim-right::after {
+  left: -20px;
+  left: -35px;
 
-
+}
+.timeline .tim-box .tim-head {
+  color: var(--var-color);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.timeline .tim-box .tim-par {
+  color: var(--par-color);
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .timeline .tim-box {
+    width: 100%;
+  }
+  .timeline .tim-box::before,
+  .timeline .tim-box::after{
+    content: none;
+  }
+}
+/* End Timeline */
 footer {
   height: 150vh;
   background-color: var(--var-color);
