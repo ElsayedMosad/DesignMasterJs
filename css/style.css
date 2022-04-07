@@ -367,7 +367,7 @@ ul {
 }
 @media (min-width: 768px) {
   .home .home-text .home-title {
-    font-size: 35px;
+    font-size: 38px;
   }
   .home .home-text .home-par {
     font-size: 17px;
@@ -488,6 +488,11 @@ ul {
 @media (min-width: 567px) {
   .gallery .container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+@media (min-width: 992px) {
+  .gallery .container {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 @media (max-width: 280px) {
@@ -647,7 +652,6 @@ ul {
 .features .container {
   padding-top: 15px;
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
   gap: 25px;
   text-align: center;
   line-height: var(--line);
@@ -686,11 +690,90 @@ ul {
 }
 @media (min-width: 768px) {
   .features .container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
   }
 }
 /* End Features */
+
+.test {
+  padding-top: 70px;
+  padding-bottom: 60px;
+  background-color: var(--light-color);
+  position: relative;
+}
+.test::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--var-color);
+}
+.test::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--d-color);
+}
+.test .test-title {
+  color: var(--main-text-color);
+  font-size: 25px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.test div.container {
+  display: grid;
+  gap: 30px;
+}
+.test .test-box {
+  position: relative;
+  padding: 20px;
+  line-height: var(--line);
+  background-color: var(--light-color);
+  z-index: 100;
+}
+.test .test-box .test-us {
+  display: flex;
+  align-items: center;
+}
+.test .test-box .test-us .test-img {
+  width: 65px;
+  height: 65px;
+  padding-top: 6px;
+  margin-right: 20px;
+  background-color: var(--var-color);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.test .test-par {
+  color: var(--par-color);
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.test .test-head {
+  color: var(--head-color);
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+.test .test-ceo {
+  color: var(--par-color);
+  font-size: 13px;
+}
+@media (min-width: 768px) {
+  .test .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+/* Start Testimonials */
+/* End Testimonials */
 footer {
   height: 150vh;
   background-color: var(--var-color);
+  background-color: white;
 }

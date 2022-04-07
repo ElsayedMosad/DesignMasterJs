@@ -102,7 +102,7 @@ function autoChangeBg() {
       home.style.cssText = `background-image: url('imgs/${
         arrImg[Math.floor(Math.random() * arrImg.length)]
       }')`;
-    }, 5000);
+    }, 10000);
   }
 }
 autoChangeBg();
