@@ -113,7 +113,6 @@ const gear = document.querySelector(".gear");
 // open or close control panel on click gear
 gear.addEventListener("click", () => settingBox.classList.toggle("set-open"));
 
-
 const root = document.querySelector(":root");
 const colors = document.querySelectorAll(".set-colors li");
 // check localStorage and change setting change var color
@@ -149,14 +148,14 @@ const opMood = document.querySelectorAll(".set-mood li");
 const yesMood = setMood.querySelector(".yes");
 const NoMood = setMood.querySelector(".no");
 // localStorage if light mood no and change to dark if no
-if (localStorage.getItem('optionMood')) {
-  if (localStorage.getItem('optionMood') === 'no') {
-    document.querySelector('body').classList.add('mood')
-    yesMood.classList.remove('active-op')
-    NoMood.classList.add('active-op')
-    document.querySelector('.about-img img').src = `imgs/about-us-dark.jpg`
-  }
+// if (localStorage.getItem('optionMood')) {
+if (localStorage.getItem("optionMood") === "no") {
+  document.querySelector("body").classList.add("mood");
+  yesMood.classList.remove("active-op");
+  NoMood.classList.add("active-op");
+  document.querySelector(".about-img img").src = `imgs/about-us-dark.jpg`;
 }
+// }
 opMood.forEach((e) => {
   e.addEventListener("click", function (e) {
     if (!e.target.classList.contains("active-op")) {
@@ -167,24 +166,31 @@ opMood.forEach((e) => {
       });
       localStorage.setItem("optionMood", e.target.classList);
       e.target.classList.add("active-op");
-      if (e.target.classList.contains('no')) {
+      if (e.target.classList.contains("no")) {
         // changeMood();
-        document.querySelector('body').classList.add('mood')
-        document.querySelector('.about-img img').src = `imgs/about-us-dark.jpg`
+        document.querySelector("body").classList.add("mood");
+        document.querySelector(".about-img img").src = `imgs/about-us-dark.jpg`;
       }
-      if (e.target.classList.contains('yes')) {
+      if (e.target.classList.contains("yes")) {
         // changeMood();
-        document.querySelector('body').classList.remove('mood')
-        document.querySelector('.about-img img').src = `imgs/about-us.jpg`
+        document.querySelector("body").classList.remove("mood");
+        document.querySelector(".about-img img").src = `imgs/about-us.jpg`;
       }
     }
   });
 });
 
+// Add & Remove Bullets
 const setBullets = document.querySelector(".set-bullets");
 const opBullets = document.querySelectorAll(".set-bullets li");
-// const yesRandom = setRandom.querySelector(".yes");
-// const NoRandom = setRandom.querySelector(".no");
+const yesBull = setBullets.querySelector(".yes");
+const NoBull = setBullets.querySelector(".no");
+// check localStorage if Bullets removed
+if (localStorage.getItem("optionBullets") == "no") {
+  document.querySelector(".bullets").classList.add("open-bull");
+  yesBull.classList.remove("active-op");
+  NoBull.classList.add("active-op");
+}
 opBullets.forEach((e) => {
   e.addEventListener("click", function (e) {
     if (!e.target.classList.contains("active-op")) {
@@ -194,6 +200,12 @@ opBullets.forEach((e) => {
         }
       });
       localStorage.setItem("optionBullets", e.target.classList);
+      if (e.target.classList.contains("no")) {
+        document.querySelector(".bullets").classList.add("open-bull");
+      }
+      if (e.target.classList.contains("yes")) {
+        document.querySelector(".bullets").classList.remove("open-bull");
+      }
       e.target.classList.add("active-op");
     }
   });
@@ -203,7 +215,7 @@ opBullets.forEach((e) => {
 const skills = document.querySelector(".skills");
 const skillItems = skills.querySelectorAll(".skill-show span");
 
-// change skills width if scroll on it 
+// change skills width if scroll on it
 window.addEventListener("scroll", function () {
   // change width of span skill if scroll in visible
   if (
@@ -211,10 +223,10 @@ window.addEventListener("scroll", function () {
     this.scrollY < skills.offsetTop + skills.offsetHeight
   ) {
     if (skillItems[0].style.width != skillItems[0].dataset.width) {
-        skillItems.forEach((e) => {
+      skillItems.forEach((e) => {
         e.style.width = e.dataset.width;
       });
-      }
+    }
   } else {
     if (skillItems[0].style.width != 0) {
       skillItems.forEach((e) => {
@@ -225,42 +237,48 @@ window.addEventListener("scroll", function () {
 });
 
 // open img in popup on click it
-const imgsGallery = document.querySelectorAll('.gallery img');
-imgsGallery.forEach ((e, index) => {
-  e.addEventListener('click', ()=> {
+const imgsGallery = document.querySelectorAll(".gallery img");
+imgsGallery.forEach((e, index) => {
+  e.addEventListener("click", () => {
     // Creat overlay => show image
-    let showImg = document.createElement('div');
-    showImg.classList.add('show-img');
+    let showImg = document.createElement("div");
+    showImg.classList.add("show-img");
     document.body.appendChild(showImg);
     // Create Box image
-    let imgBox = document.createElement('div')
-    imgBox.classList.add('img-box');
+    let imgBox = document.createElement("div");
+    imgBox.classList.add("img-box");
     showImg.appendChild(imgBox);
     // Create Title for image
-    let imgTitle = document.createElement('h3');
-    imgTitle.classList.add('img-title')
+    let imgTitle = document.createElement("h3");
+    imgTitle.classList.add("img-title");
     imgBox.appendChild(imgTitle);
-    // Create text Title 
+    // Create text Title
     // Create img
-    let img = document.createElement('img');
+    let img = document.createElement("img");
     img.src = e.src;
-    imgBox.appendChild(img)
+    imgBox.appendChild(img);
     if (e.alt) {
       let imgText = document.createTextNode(e.alt);
-      imgTitle.appendChild(imgText)
+      imgTitle.appendChild(imgText);
     } else {
-      let imgText = document.createTextNode('Image Deap');
-      imgTitle.appendChild(imgText)
-      img.alt = 'Image Deap';
-      console.log("dddd")
+      let imgText = document.createTextNode("Image Deap");
+      imgTitle.appendChild(imgText);
+      img.alt = "Image Deap";
+      console.log("dddd");
     }
     // Creat close-img
-    let closeImg = document.createElement('span');
-    closeImg.classList.add('close-img');
-    closeImg.innerHTML= `<i class="fa-solid fa-xmark"></i>`;
-    imgBox.appendChild(closeImg)
-    closeImg.addEventListener('click', ()=> {
-      showImg.remove()
-    })
-  })
-})
+    let closeImg = document.createElement("span");
+    closeImg.classList.add("close-img");
+    closeImg.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    imgBox.appendChild(closeImg);
+    closeImg.addEventListener("click", () => {
+      showImg.remove();
+    });
+  });
+});
+
+// Reset option
+document.querySelector(".set-box .reset").onclick = function () {
+  localStorage.clear();
+  window.location.reload();
+};

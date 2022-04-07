@@ -1,10 +1,6 @@
 /* Start variables */
 :root {
-  --var-color: rgb(255, 225, 0);
-  --var-color: rgb(255, 0, 217);
-  --var-color: rgb(26, 91, 229);
-  --var-color: rgb(0, 217, 43);
-  --var-color: rgb(255, 26, 26);
+  --var-color: rgb(32, 120, 171);
   --main-text-color: #eee;
   --light-color: #fff;
   --d-color: #ddd;
@@ -24,8 +20,15 @@ body.mood {
   --light-color: rgb(32, 32, 32);
   --d-color: rgb(58, 58, 58);
   --white-color: white;
-  --par-color: #b7b7b7;
+  --par-color: #c8c3c3;
   --head-color: rgb(229, 229, 229);
+  
+  /* --main-text-color: #eee;
+  --light-color: rgb(28 28 28);
+  --d-color: rgb(49 48 48);
+  --white-color: white;
+  --par-color: #c8c3c3;
+  --head-color: rgb(229, 229, 229); */
 }
 html {
   scroll-behavior: smooth;
@@ -49,7 +52,7 @@ div {
 img {
   max-width: 100%;
 }
-button {
+button,input,textarea {
   border: none;
   background-color: transparent;
   outline: none;
@@ -114,7 +117,7 @@ ul {
   background-color: var(--var-color);
   width: 80px;
   height: 4px;
-  bottom: -6px;
+  bottom: -12px;
   left: 50%;
   transform: translate(-50%);
 }
@@ -136,7 +139,7 @@ ul {
   font-size: 25px;
   color: var(--head-color);
   position: relative;
-  margin: 20px auto 30px;
+  margin: 25px auto 35px;
   text-align: center;
 }
 .set-box .set-head::after {
@@ -145,7 +148,7 @@ ul {
   background-color: var(--var-color);
   width: 60px;
   height: 4px;
-  bottom: -10px;
+  bottom: -12px;
   left: 50%;
   transform: translate(-50%);
 }
@@ -232,11 +235,82 @@ ul {
   color: var(--white-color);
   cursor: pointer;
   opacity: 0.5;
+  font-weight: 600;
 }
 .set-box .set-item .set-op li.active-op {
   opacity: 1;
 }
+.set-box .reset {
+  /* width: 100%; */
+  /* display: block; */
+  margin: 20px 10px;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  background-color: rgb(255, 44, 44);
+  color: var(--main-text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.set-box .reset:hover {
+  background-color: rgb(245, 11, 11);
+  
+}
 /* End setting box */
+/* Start Bullets */
+.bullets {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 200;
+  display: block;
+}
+.bullets.open-bull {
+  display: none;
+}
+.bullets li a {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 3px solid var(--var-color);
+  border-radius: 50%;
+  margin-bottom: 15px;
+  position: relative;
+}
+.bullets li a .bul-content {
+  position: absolute;
+  left: -20px;
+  top: -5px;
+  transform: translate(-100%);
+  display: inline-block;
+  width: 120px;
+  background-color: var(--var-color);
+  color: var(--main-text-color);
+  padding: 8px 0;
+  text-align: center;
+  font-size: 16px;
+  cursor: initial;
+  display: none;
+}
+.bullets li a:hover  .bul-content {
+  display: inline-block;
+}
+.bullets li a .bul-content::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -19px;
+  height: 0;
+  width: 0;
+  transform: translateY(-50%);
+  border: 10px solid;
+  border-color: transparent transparent transparent var(--var-color);
+}
+/* End Bullets */
 /* Start Home */
 .home {
   min-height: 100vh;
@@ -407,7 +481,7 @@ ul {
     font-size: 17px;
   }
   .about .about-img {
-    flex-basis: 40%;
+    flex-basis: 35%;
   }
 }
 /* End About  */
@@ -477,7 +551,7 @@ ul {
   place-items: center;
 }
 .gallery .container img {
-  padding: 2px;
+  padding: 3px;
   border: 1px solid var(--var-color);
   cursor: pointer;
   transition: 0.2s;
@@ -532,7 +606,7 @@ ul {
   top: 0;
   right: 0;
   background-color: var(--var-color);
-  color: var(--light-color);
+  color: var(--main-text-color);
   transform: translate(50%, -50%);
   border-radius: 50%;
   font-size: 28px;
@@ -661,21 +735,21 @@ ul {
 }
 .features .feat-item img {
   padding: 10px;
-  width: 140px;
+  width: 130px;
 }
 .features .feat-head {
   font-size: 19px;
   color: var(--var-color);
-  margin: 5px 0 15px;
+  margin: 0 0 18px;
   position: relative;
 }
 .features .feat-head::after {
   content: "";
   position: absolute;
   background-color: var(--var-color);
-  width: 40px;
-  height: 3px;
-  bottom: -3px;
+  width: 45px;
+  height: 4px;
+  bottom: -5px;
   left: 50%;
   transform: translate(-50%);
 }
@@ -696,9 +770,10 @@ ul {
 }
 /* End Features */
 
+/* Start Testimonials */
 .test {
   padding-top: 70px;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
   background-color: var(--light-color);
   position: relative;
 }
@@ -723,8 +798,9 @@ ul {
 .test .test-title {
   color: var(--main-text-color);
   font-size: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   position: relative;
+  z-index: 10;
 }
 .test div.container {
   display: grid;
@@ -770,10 +846,55 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
-/* Start Testimonials */
 /* End Testimonials */
-footer {
-  height: 150vh;
-  background-color: var(--var-color);
-  background-color: white;
+/* Start Contact */
+.contact {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  /* background-color: var(--main-text-color); */
+  background-color: var(--light-color);
+  background-image: url(../imgs/contact.png);
+  background-size: cover;
+  /* position: relative; */
 }
+.contact .container  {
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+.contact .container form {
+  display: grid;
+}
+.contact form input,
+.contact form textarea {
+  padding: 15px 10px;
+  font-size: 16;
+  background-color: transparent;
+  color: var(--par-color);
+  width: 100%;
+  border: 1px solid var(--d-color);
+  margin-bottom: 25px;
+}
+.contact form [type="submit"] {
+  background-color: var(--var-color);
+  text-align: center;
+  color: var(--main-text-color);
+  cursor: pointer;
+  padding: 12px 10px;
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .contact form {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+/* End contact */
+/* Start Footer */
+.footer {
+  background-color: var(--d-color);
+  color: var(--par-color);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 15px;
+}
+/* End Footer */

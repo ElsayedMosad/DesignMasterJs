@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="set-box set-op">
+    <div class="set-box set-open">
       <h2 class="set-head">Control panel</h2>
       <div class="gear">
         <i class="fa-solid fa-gear"></i>
@@ -61,6 +61,33 @@
           <li class="no">No</li>
         </ul>
       </div>
+      <div class="reset">
+        Reset
+      </div>
+    </div>
+    <div class="bullets">
+      <ul>
+        <li>
+          <a href="#about"><span class="bul-content">About</span></a>
+        </li>
+        <li>
+          <a href="#skills"><span class="bul-content">Skills</span></a>
+        </li>
+        <li>
+          <a href="#gallery"><span class="bul-content">Gallery</span></a>
+        </li>
+        <li>
+          <a href="#timeline"><span class="bul-content">Timeline</span></a>
+        </li>
+        <li>
+          <a href="#features"><span class="bul-content">Features</span></a>
+        </li>
+        <li>
+          <a href="#testimonials"
+            ><span class="bul-content">Testimonials</span></a
+          >
+        </li>
+      </ul>
     </div>
     <section class="home">
       <div class="overlay">
@@ -266,18 +293,17 @@
     </section>
     <!-- End Features -->
     <!-- Start Testimonials -->
-    <section class="test">
+    <section class="test" id="testimonials">
       <h2 class="test-title container">Testimonials</h2>
       <div class="container">
         <div class="test-box">
           <p class="test-par">
-            Iam very happy with the product its amazing and i recieve it very
+            I'm very happy with the product it's amazing and I received it very
             fast and the price was amazing.
           </p>
           <div class="test-us">
             <div class="test-img">
               <img src="imgs/u8.png" alt="" />
-
             </div>
             <div>
               <h3 class="test-head">Ahmed Mosaad</h3>
@@ -287,13 +313,12 @@
         </div>
         <div class="test-box">
           <p class="test-par">
-            Iam very happy with the product its amazing and i recieve it very
+            I'm very happy with the product it's amazing and I received it very
             fast and the price was amazing.
           </p>
           <div class="test-us">
             <div class="test-img">
               <img src="imgs/u5.png" alt="" />
-              
             </div>
             <div>
               <h3 class="test-head">Sherief Ashraf</h3>
@@ -303,13 +328,12 @@
         </div>
         <div class="test-box">
           <p class="test-par">
-            Iam very happy with the product its amazing and i recieve it very
+            I'm very happy with the product it's amazing and I received it very
             fast and the price was amazing.
           </p>
           <div class="test-us">
             <div class="test-img">
               <img src="imgs/u6.png" alt="" />
-              
             </div>
             <div>
               <h3 class="test-head">Mohamed Ibrahim</h3>
@@ -320,9 +344,28 @@
       </div>
     </section>
     <!-- End Testimonials -->
-    <!-- <i class="fa-solid fa-2"></i> -->
+    <!-- Start Contact  -->
+    <section class="contact">
+      <h2 class="main-head">Contact Us</h2>
+
+      <div class="container">
+        <form action="">
+          <div>
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="text" name="phone" placeholder="Your Number">
+            <input type="email" name="email" placeholder="Your Email">
+            <input type="text" name="subject" placeholder="Your Subject">
+          </div>
+          <div>
+            <textarea name="" id="" cols="30" rows="9" placeholder="Your Message"></textarea>
+            <input type="submit" value="send">
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- End Contact  -->
+    <footer class="footer">Created With Love By Elsayed Mosad</footer>
     <!-- Main javascript file -->
-    <footer></footer>
     <script src="js/script.js"></script>
   </body>
 </html>
