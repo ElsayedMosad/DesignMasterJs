@@ -177,7 +177,6 @@ if (localStorage.getItem("optionMood") === "no") {
   document.querySelector("body").classList.add("mood");
   yesMood.classList.remove("active-op");
   NoMood.classList.add("active-op");
-  document.querySelector(".about-img img").src = `imgs/about-us-dark.jpg`;
 }
 
 opMood.forEach((e) => {
@@ -188,10 +187,8 @@ opMood.forEach((e) => {
       e.target.classList.add("active-op");
       if (e.target.classList.contains("no")) {
         document.querySelector("body").classList.add("mood");
-        document.querySelector(".about-img img").src = `imgs/about-us-dark.jpg`;
       } else if (e.target.classList.contains("yes")) {
         document.querySelector("body").classList.remove("mood");
-        document.querySelector(".about-img img").src = `imgs/about-us.jpg`;
       }
     }
   });
