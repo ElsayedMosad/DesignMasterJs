@@ -1,16 +1,24 @@
 // Play menu toggle
+
 const menuToggle = document.querySelector(".menu-toggle");
 const menuLinks = document.querySelector(".links");
+// To Remove Event click from it
 const menuArrow = document.querySelector(".menu-arrow");
+
 menuToggle.addEventListener("click", (e) => {
+  // add and remove on click menuToggle
   if (e.target !== menuArrow) {
     menuLinks.classList.toggle("open-menu");
   }
+  // close settingBox on click menu if it is opened
   if (settingBox.classList.contains("set-open")) {
     settingBox.classList.remove("set-open");
   }
 });
+
+// Close menu on click anywhere
 document.addEventListener("click", function (e) {
+  // check target no links and menu and menu open
   if (
     e.target != menuLinks &&
     e.target !== menuToggle &&
@@ -22,45 +30,59 @@ document.addEventListener("click", function (e) {
 menuToggle.onclick = function (e) {
   e.stopPropagation();
 };
+// No needed because target links in document event
 // menuLinks.onclick = function (e) {
 //   e.stopPropagation();
 // };
 
+// bulid function delete class if found
+function deleteActiveOp(options, currentClass) {
+  options.forEach((e) => {
+    if (e.classList.contains(currentClass)) {
+      e.classList.remove(currentClass);
+    }
+  });
+}
+
+// Frist Value of valueChangeBg yes
 let valueChangeBg = "yes";
+
 const setRandom = document.querySelector(".set-random");
 const opRandom = document.querySelectorAll(".set-random li");
 const yesRandom = setRandom.querySelector(".yes");
 const NoRandom = setRandom.querySelector(".no");
-// stop Random bg and add active to no if localStorage optionRandom no
+
+// change value of valueChangeBg and change place of active-op class if local no
 if (localStorage.getItem("optionRandom") === "no") {
   valueChangeBg = localStorage.getItem("optionRandom");
   yesRandom.classList.remove("active-op");
   NoRandom.classList.add("active-op");
 }
-// change Random option on click yes or no
+
+// change Random option on click yes or no && localStorage value of class
 opRandom.forEach((e) => {
   e.addEventListener("click", function (e) {
+    // Check target not active
     if (!e.target.classList.contains("active-op")) {
-      opRandom.forEach((e) => {
-        if (e.classList.contains("active-op")) {
-          e.classList.remove("active-op");
-        }
-      });
+      // delete class form last
+      deleteActiveOp(opRandom, "active-op")
+      // add class to target and chenge localStorage
       localStorage.setItem("optionRandom", e.target.classList);
       e.target.classList.add("active-op");
-    }
-    if (e.target.classList.contains("yes")) {
-      valueChangeBg = "yes";
-      autoChangeBg();
-    }
-    if (e.target.classList.contains("no")) {
-      valueChangeBg = "no";
-      clearInterval(repeatChange);
+
+      if (e.target.classList.contains("yes")) {
+        valueChangeBg = "yes";
+        autoChangeBg();
+      } else if (e.target.classList.contains("no")) {
+        valueChangeBg = "no";
+        clearInterval(repeatChange);
+      }
     }
   });
 });
 // change background random
 const home = document.querySelector(".home");
+// Array From images
 const arrImg = [
   "p1.jpg",
   "p2.jpg",
@@ -75,27 +97,10 @@ const arrImg = [
   "p11.jpg",
   "p12.jpg",
 ];
+
 // change background
 
 // Method one
-// function autoChangeBg() {
-//   if (valueChangeBg === "yes") {
-//     repeatChange = setInterval(() => {
-//       home.style.cssText = `background-image: url('imgs/${
-//         arrImg[nextIndex()]
-//       }')`;
-//     }, 1000);
-//   }
-// }
-// let i = 0;
-// function nextIndex() {
-//   i++;
-//   if (i === arrImg.length - 1) {
-//     i = 0;
-//   }
-//   return i;
-// }
-// Method two
 function autoChangeBg() {
   if (valueChangeBg === "yes") {
     repeatChange = setInterval(() => {
@@ -107,78 +112,91 @@ function autoChangeBg() {
 }
 autoChangeBg();
 
+// Method two
+
+// function autoChangeBg() {
+//   if (valueChangeBg === "yes") {
+//     repeatChange = setInterval(() => {
+//       home.style.cssText = `background-image: url('imgs/${
+//         arrImg[nextIndex()]
+//       }')`;
+//     }, 10000);
+//   }
+// }
+// let i = 0;
+// function nextIndex() {
+//   i++;
+//   if (i === arrImg.length - 1) {
+//     i = 0;
+//   }
+//   return i;
+// }
+
+
 // play setting box
+
 const settingBox = document.querySelector(".set-box");
 const gear = document.querySelector(".gear");
 // open or close control panel on click gear
 gear.addEventListener("click", () => settingBox.classList.toggle("set-open"));
 
+// colors box change root and local index
 const root = document.querySelector(":root");
 const colors = document.querySelectorAll(".set-colors li");
 // check localStorage and change setting change var color
 if (localStorage.getItem("index")) {
-  clearActive();
+  // get backgroundColor value by using index
   let color = colors[localStorage.getItem("index")].style.backgroundColor;
-  colors[localStorage.getItem("index")].classList.add("color-active");
   root.style.setProperty("--var-color", color);
+  deleteActiveOp(colors, "color-active");
+  // add class to current index
+  colors[localStorage.getItem("index")].classList.add("color-active");
 }
+
 colors.forEach(function (e, index) {
   e.addEventListener("click", function (e) {
     if (!e.target.classList.contains("color-active")) {
-      let color = e.target.style.backgroundColor;
-      root.style.setProperty("--var-color", color);
-      clearActive();
+      let varColor = e.target.style.backgroundColor;
+      root.style.setProperty("--var-color", varColor);
+      deleteActiveOp(colors, "color-active");
       e.target.classList.add("color-active");
       localStorage.setItem("index", index);
     }
   });
 });
-// Remove color-active class if founded
-function clearActive() {
-  colors.forEach((e) => {
-    if (e.classList.contains("color-active")) {
-      e.classList.remove("color-active");
-    }
-  });
-}
+
 
 // Change to dark
 const setMood = document.querySelector(".set-mood");
 const opMood = document.querySelectorAll(".set-mood li");
 const yesMood = setMood.querySelector(".yes");
 const NoMood = setMood.querySelector(".no");
+
 // localStorage if light mood no and change to dark if no
-// if (localStorage.getItem('optionMood')) {
 if (localStorage.getItem("optionMood") === "no") {
   document.querySelector("body").classList.add("mood");
   yesMood.classList.remove("active-op");
   NoMood.classList.add("active-op");
   document.querySelector(".about-img img").src = `imgs/about-us-dark.jpg`;
 }
-// }
+
 opMood.forEach((e) => {
   e.addEventListener("click", function (e) {
     if (!e.target.classList.contains("active-op")) {
-      opMood.forEach((e) => {
-        if (e.classList.contains("active-op")) {
-          e.classList.remove("active-op");
-        }
-      });
+      deleteActiveOp(opMood, "active-op");
       localStorage.setItem("optionMood", e.target.classList);
       e.target.classList.add("active-op");
       if (e.target.classList.contains("no")) {
-        // changeMood();
         document.querySelector("body").classList.add("mood");
         document.querySelector(".about-img img").src = `imgs/about-us-dark.jpg`;
-      }
-      if (e.target.classList.contains("yes")) {
-        // changeMood();
+      } else if (e.target.classList.contains("yes")) {
         document.querySelector("body").classList.remove("mood");
         document.querySelector(".about-img img").src = `imgs/about-us.jpg`;
       }
     }
   });
 });
+
 
 // Add & Remove Bullets
 const setBullets = document.querySelector(".set-bullets");
@@ -194,11 +212,7 @@ if (localStorage.getItem("optionBullets") == "no") {
 opBullets.forEach((e) => {
   e.addEventListener("click", function (e) {
     if (!e.target.classList.contains("active-op")) {
-      opBullets.forEach((e) => {
-        if (e.classList.contains("active-op")) {
-          e.classList.remove("active-op");
-        }
-      });
+      deleteActiveOp(opBullets, "active-op");
       localStorage.setItem("optionBullets", e.target.classList);
       if (e.target.classList.contains("no")) {
         document.querySelector(".bullets").classList.add("open-bull");
@@ -220,7 +234,7 @@ window.addEventListener("scroll", function () {
   // change width of span skill if scroll in visible
   if (
     this.scrollY >= skills.offsetTop - 200 &&
-    this.scrollY < skills.offsetTop + skills.offsetHeight
+    this.scrollY < skills.offsetTop + skills.offsetHeight + 200
   ) {
     if (skillItems[0].style.width != skillItems[0].dataset.width) {
       skillItems.forEach((e) => {
