@@ -65,7 +65,7 @@ opRandom.forEach((e) => {
     // Check target not active
     if (!e.target.classList.contains("active-op")) {
       // delete class form last
-      deleteActiveOp(opRandom, "active-op")
+      deleteActiveOp(opRandom, "active-op");
       // add class to target and chenge localStorage
       localStorage.setItem("optionRandom", e.target.classList);
       e.target.classList.add("active-op");
@@ -82,20 +82,35 @@ opRandom.forEach((e) => {
 });
 // change background random
 const home = document.querySelector(".home");
+
 // Array From images
+
+// const arrImg = [
+//   "p1.jpg",
+//   "p2.jpg",
+//   "p3.jpg",
+//   "p4.jpg",
+//   "p5.jpg",
+//   "p6.jpg",
+//   "p7.jpg",
+//   "p8.jpg",
+//   "p9.jpg",
+//   "p10.jpg",
+//   "p11.jpg",
+//   "p12.jpg",
+// ];
+
 const arrImg = [
-  "p1.jpg",
-  "p2.jpg",
-  "p3.jpg",
-  "p4.jpg",
-  "p5.jpg",
-  "p6.jpg",
-  "p7.jpg",
-  "p8.jpg",
-  "p9.jpg",
-  "p10.jpg",
-  "p11.jpg",
-  "p12.jpg",
+  "01.jpg",
+  "02.jpg",
+  // '03.jpg',
+  "04.jpg",
+  "05.jpg",
+  "06.png",
+  "07.jpg",
+  "08.jpg",
+  "09.jpg",
+  "10.jpg",
 ];
 
 // change background
@@ -107,7 +122,7 @@ function autoChangeBg() {
       home.style.cssText = `background-image: url('imgs/${
         arrImg[Math.floor(Math.random() * arrImg.length)]
       }')`;
-    }, 10000);
+    }, 2000);
   }
 }
 autoChangeBg();
@@ -131,7 +146,6 @@ autoChangeBg();
 //   }
 //   return i;
 // }
-
 
 // play setting box
 
@@ -165,7 +179,6 @@ colors.forEach(function (e, index) {
   });
 });
 
-
 // Change to dark
 const setMood = document.querySelector(".set-mood");
 const opMood = document.querySelectorAll(".set-mood li");
@@ -193,7 +206,6 @@ opMood.forEach((e) => {
     }
   });
 });
-
 
 // Add & Remove Bullets
 const setBullets = document.querySelector(".set-bullets");
