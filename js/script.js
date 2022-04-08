@@ -106,7 +106,7 @@ const arrImg = [
   // '03.jpg',
   "04.jpg",
   "05.jpg",
-  "06.png",
+  // "06.png",
   "07.jpg",
   "08.jpg",
   "09.jpg",
@@ -242,21 +242,23 @@ const skillItems = skills.querySelectorAll(".skill-show span");
 window.addEventListener("scroll", function () {
   // change width of span skill if scroll in visible
   if (
-    this.scrollY >= skills.offsetTop - 200 &&
-    this.scrollY < skills.offsetTop + skills.offsetHeight + 200
+    this.scrollY >=
+    skills.offsetTop - 200
+    //  &&  this.scrollY < skills.offsetTop + skills.offsetHeight + 200
   ) {
     if (skillItems[0].style.width != skillItems[0].dataset.width) {
       skillItems.forEach((e) => {
         e.style.width = e.dataset.width;
       });
     }
-  } else {
-    if (skillItems[0].style.width != 0) {
-      skillItems.forEach((e) => {
-        e.style.width = 0;
-      });
-    }
   }
+  // else {
+  //   if (skillItems[0].style.width != 0) {
+  //     skillItems.forEach((e) => {
+  //       e.style.width = 0;
+  //     });
+  //   }
+  // }
 });
 
 // open img in popup on click it
