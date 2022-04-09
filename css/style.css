@@ -505,8 +505,7 @@ body.mood .home .overlay {
 }
 .skills .skill-item .skill-show {
   height: 30px;
-  background-color: var(--var-color);
-  background-color: var(--main-text-color);
+  background-color: var(--d-color);
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
