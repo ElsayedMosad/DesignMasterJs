@@ -231,17 +231,6 @@ opBullets.forEach((e) => {
   });
 });
 
-// scroll bulltes
-document.querySelectorAll(".bullets li").forEach((ele) => {
-  ele.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    document.querySelector(e.target.dataset.class).scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});
-
 // Play our skills
 const skills = document.querySelector(".skills");
 const skillItems = skills.querySelectorAll(".skill-show span");
@@ -315,3 +304,28 @@ document.querySelector(".set-box .reset").onclick = function () {
   localStorage.clear();
   window.location.reload();
 };
+
+// scroll bulltes
+const sections = document.querySelectorAll("section");
+const bulletsLis = document.querySelectorAll(".bullets li");
+const bulletsSpans = document.querySelectorAll(".bullets li span");
+function scrollUsingData(elements) {
+  elements.forEach((ele) => {
+    ele.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      let trueClass = e.target.dataset.section;
+      sections.forEach((e) => {
+        if (e.classList.contains(trueClass)) {
+          window.scroll(0, e.offsetTop);
+        }
+      });
+      // document.querySelector(e.target.dataset.class).scrollIntoView({
+      //   behavior: "smooth",
+      // });
+    });
+  });
+}
+
+scrollUsingData(bulletsLis);
+scrollUsingData(bulletsSpans);
