@@ -292,7 +292,7 @@ ul {
   background-color: var(--var-color);
   color: var(--main-text-color);
   color: white;
-  padding: 10px 0;
+  padding: 7px 0;
   text-align: center;
   font-size: 17px;
   cursor: initial;
@@ -319,7 +319,7 @@ ul {
 /* Start Home */
 .home {
   min-height: 100vh;
-  background: url("../imgs/01.jpg") no-repeat center center;
+  background: url("../imgs/05.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -551,6 +551,8 @@ body.mood .home .overlay {
   cursor: pointer;
   transition: 0.2s;
   filter: contrast(110%);
+  /* width: 100%; */
+  /* height: 100%; */
 }
 .gallery .container img:hover {
   filter: contrast(130%);
@@ -567,7 +569,7 @@ body.mood .home .overlay {
 }
 @media (max-width: 320px) {
   .gallery .container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 .show-img {

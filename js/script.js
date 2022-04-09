@@ -232,7 +232,7 @@ opBullets.forEach((e) => {
 });
 
 // scroll bulltes
-document.querySelectorAll('.bullets li').forEach((ele) => {
+document.querySelectorAll(".bullets li").forEach((ele) => {
   ele.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -241,8 +241,6 @@ document.querySelectorAll('.bullets li').forEach((ele) => {
     });
   });
 });
-
-
 
 // Play our skills
 const skills = document.querySelector(".skills");
