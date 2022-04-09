@@ -9,6 +9,7 @@
   --head-color: rgb(35, 35, 35);
   --con-color: rgb(229, 228, 228);
   --line: 1.8;
+  --main-text-color: rgb(250, 250, 250);
 }
 /* End variables */
 /* Start Genral rules */
@@ -16,7 +17,7 @@ body {
   font-family: "Merriweather Sans", sans-serif;
 }
 body.mood {
-  --main-text-color: #eee;
+  --main-text-color: rgb(250, 250, 250);
   --light-color: rgb(32, 32, 32);
   --d-color: rgb(58, 58, 58);
   --white-color: white;
@@ -549,7 +550,7 @@ body.mood .home .overlay {
 }
 @media (min-width: 768px) {
   .gallery .container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 @media (min-width: 992px) {
