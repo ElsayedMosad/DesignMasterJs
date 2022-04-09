@@ -231,6 +231,19 @@ opBullets.forEach((e) => {
   });
 });
 
+// scroll bulltes
+document.querySelectorAll('.bullets li').forEach((ele) => {
+  ele.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.querySelector(e.target.dataset.class).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
+
+
+
 // Play our skills
 const skills = document.querySelector(".skills");
 const skillItems = skills.querySelectorAll(".skill-show span");

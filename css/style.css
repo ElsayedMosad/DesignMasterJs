@@ -264,35 +264,39 @@ ul {
 .bullets.open-bull {
   display: none;
 }
-.bullets li a {
-  display: inline-block;
+.bullets li  {
+  display: block;
   width: 20px;
   height: 20px;
   background-color: transparent;
   border: 3px solid var(--var-color);
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   position: relative;
+  cursor: pointer;
 }
-.bullets li a .bul-content {
+.bullets li .bul-content {
   position: absolute;
-  left: -20px;
-  top: -5px;
+  left: -15px;
+  top: -10px;
   transform: translate(-100%);
-  display: inline-block;
   width: 120px;
   background-color: var(--var-color);
   color: var(--main-text-color);
-  padding: 8px 0;
+  color: white;
+  padding: 10px 0;
   text-align: center;
-  font-size: 16px;
+  font-size: 17px;
   cursor: initial;
   display: none;
 }
-.bullets li a:hover .bul-content {
+.bullets li:hover .bul-content {
   display: inline-block;
 }
-.bullets li a .bul-content::after {
+.bullets li .bul-content:hover {
+  display: none;
+}
+.bullets li .bul-content::after {
   content: "";
   position: absolute;
   top: 50%;
