@@ -272,7 +272,7 @@ ul {
 .bullets.open-bull {
   display: none;
 }
-.bullets li  {
+.bullets li {
   display: block;
   width: 20px;
   height: 20px;
@@ -546,13 +546,14 @@ body.mood .home .overlay {
   grid-template-columns: repeat(2, 1fr);
 }
 .gallery .container div img {
-  padding: 2px;
+  padding: 3px;
   border: 1px solid var(--var-color);
   cursor: pointer;
   transition: 0.2s;
+  filter: contrast(110%);
 }
 .gallery .container img:hover {
-  filter: contrast(120%);
+  filter: contrast(130%);
 }
 @media (min-width: 768px) {
   .gallery .container {
@@ -568,7 +569,7 @@ body.mood .home .overlay {
   .gallery .container {
     grid-template-columns: repeat(1, 1fr);
   }
-} 
+}
 .show-img {
   position: fixed;
   top: 0;
