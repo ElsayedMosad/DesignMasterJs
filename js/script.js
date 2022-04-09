@@ -86,31 +86,28 @@ const home = document.querySelector(".home");
 // Array From images
 
 // const arrImg = [
-//   "p1.jpg",
-//   "p2.jpg",
-//   "p3.jpg",
-//   "p4.jpg",
-//   "p5.jpg",
-//   "p6.jpg",
-//   "p7.jpg",
-//   "p8.jpg",
-//   "p9.jpg",
-//   "p10.jpg",
-//   "p11.jpg",
-//   "p12.jpg",
+//   "f1.jpg",
+//   "f2.jpg",
+//   "f3.jpg",
+//   "f4.jpg",
+//   "f5.jpg",
+//   "f6.jpg",
+//   "f7.jpg",
+//   "f8.jpg",
+//   "f9.jpg",
+//   "f10.jpg",
+//   "f11.jpg",
+//   "f12.jpg",
 // ];
 
 const arrImg = [
   "01.jpg",
   "02.jpg",
-  // '03.jpg',
+  "03.jpg",
   "04.jpg",
   "05.jpg",
-  // "06.png",
+  "06.jpg",
   "07.jpg",
-  "08.jpg",
-  "09.jpg",
-  "10.jpg",
 ];
 
 // change background
