@@ -123,15 +123,21 @@ ul {
 /* Start setting box */
 .set-box {
   position: fixed;
-  min-width: 240px;
+  min-width: 230px;
   min-height: 100vh;
   background-color: var(--light-color);
   top: 0;
   left: 0;
   z-index: 1000;
-  transform: translateX(-242px);
+  transform: translateX(-232px);
   transition: 0.2s ease;
   border-right: 2px solid var(--var-color);
+}
+@media (min-width: 768px) {
+  .set-box {
+    width: 260px;
+    transform: translateX(-262px);
+  }
 }
 .set-box .set-head {
   font-size: 25px;
